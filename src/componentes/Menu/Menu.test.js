@@ -25,3 +25,15 @@ test('Não deve renderizar o link para Extrato', () => {
 
   expect(linkExtrato).not.toBeInTheDocument();
 });
+
+test('Deve renderizar uma lista de links com a classe link', () => {
+  render(<Menu />);
+
+  const links = screen.getAllByRole('link');
+
+  links.forEach((link) => {
+    expect(link).toHaveClass('link');
+  });
+
+  expect(links).toMatchSnapshot();
+});
