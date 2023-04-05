@@ -18,3 +18,10 @@ test('Deve Renderizar uma lista de links para a página inicial', () => {
   expect(listaDeLinks).toHaveLength(4);
 });
 
+test('Não deve renderizar o link para Extrato', () => {
+  render(<Menu />);
+
+  const linkExtrato = screen.queryByText('Extrato');
+
+  expect(linkExtrato).not.toBeInTheDocument();
+});
